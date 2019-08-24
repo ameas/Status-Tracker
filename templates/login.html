@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+
+    <!-- Required meta tags -->
+	<META Http-Equiv="Cache-Control" Content="no-cache"/>
+<META Http-Equiv="Pragma" Content="no-cache"/>
+<META Http-Equiv="Expires" Content="0"/>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Status Tracker</title>
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename = 'images/GAP.gif') }}">
+<style>	
+.nab{
+  z-index: 9999;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nab a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nab a:hover {
+ padding-top: 21px;
+  background:white;
+  color: black;
+}
+
+.anda{
+float:right;
+}
+
+	input{
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: blue;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 35px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+  }
+ 
+.bl
+{
+margin-top: -200px;
+} 
+ 
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ab a{
+	color: white;
+	font-size:25px;
+	}
+.ab a:hover{
+	 padding-top: 13px;
+	color:white;
+	background-color: black;
+	}
+body
+{
+background-image:linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)), url("{{ url_for('static', filename = 'images/df.jpg') }}");
+  background-repeat: no-repeat;
+  background-size: 1380px 650px;
+}
+ .row
+{
+  margin-left:220px;
+  margin-top:120px;
+}
+</style>
+ </head>
+  <body >
+    <div class="container-scroller">
+<div class="nab">
+<div class="ab">
+<a href=" " ><img src="{{ url_for('static', filename = 'images/GAP.gif') }}", width="65" height="65"></a>
+<a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> 
+<a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a>
+<a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> 
+ <a href=" " ><h1> </h1></a> <a href=" " ><h1> </h1></a> 
+<a href=" " ><h1>Status Tracker </h1></a> 
+ </div> 
+    </div>
+</div>	 
+	  <!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+	  <!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+        <!-- partial:partials/_sidebar.html -->
+       
+		<!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+        <!-- partial -->
+        <div class="main-panel">
+         
+			<!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+                
+			   <div class="row">
+                <form method="POST">
+				  </br></br>
+				  <h4 style="margin:69px 130px; color:#000000;">Enter the username:</h4>
+					<h4  style="margin:69px 130px;color:#000000;">Enter the password:</h4>
+					<div class="bl">  
+					  <input name="uid" style="margin:0px 400px;">
+					  <input name="pwd" type="password" style="margin:50px 400px;">
+		              <input type="submit" style="margin:33px 240px;">
+					</div>
+					</form>
+                  
+               
+             
+            </div>	
+          
+          <!-- content-wrapper ends -->
+          <!-- partial:partials/_footer.html -->
+       
+          <!-- partial -->
+        </div>
+        <!-- main-panel ends -->
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+        	<script src = "{{ url_for('static', filename = 'js/vendor.bundle.base.js') }}" ></script>
+	         <script src = "{{ url_for('static', filename = 'js/misc.js') }}" ></script>
+  </body>
+</html>

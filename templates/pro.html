@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Status Tracker</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename = 'images/GAP.gif') }}">
+<style>	
+.nab{
+  z-index: 9999;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nab a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nab a:hover {
+ padding-top: 21px;
+  background:white;
+  color: black;
+}
+
+.and{
+float:right;
+}
+.anda{
+float:right;
+}
+
+	.nav
+	{
+	position: fixed;
+	}
+	
+	input{
+  width: 30%;
+  padding: 12px 20px;
+  margin: 10px 450px;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: blue;
+  box-sizing: border-box;
+}
+
+textarea{
+ margin-left: 200px;
+}
+input[type=submit] {
+  width: 50%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 35px 200px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+  }
+  
+  .bl{
+  margin-top: -240px;
+  }
+  .cl{
+  margin: -140px 180px;
+  }
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ab a{
+	color: white;
+	}
+.ab a:hover{
+	 padding-top: 13px;
+	color:white;
+	background-color: black;
+	}
+.tablink {
+  background-color: #A9A9A9;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 35%;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+input[type="date"]::-webkit-calendar-picker-indicator {
+    color: rgba(0, 0, 0, 0);
+    opacity: 1;
+    display: block;
+    background: url(https://mywildalberta.ca/images/GFX-MWA-Parks-Reservations.png) no-repeat;
+    width: 20px;
+    height: 20px;
+    border-width: thin;
+}
+body
+{
+background-image: linear-gradient(rgba(255,255,255,.7), rgba(255,255,255,.7)),url("{{ url_for('static', filename = 'images/df.jpg') }}");
+  background-repeat: no-repeat;
+  background-size: 1380px 650px;
+}
+ .row
+{
+  margin-left:150px;
+  margin-top:100px;
+}
+	</style>
+	<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script  type="text/javascript">
+function noBack() { window.history.forward(); }
+    noBack();
+window.onload = function () {
+noBack;
+document.getElementById("defaultOpen").click();
+}
+function openPage(pageName,elmnt,color) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("tablink");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].style.backgroundColor = "";
+  }
+  document.getElementById(pageName).style.display = "block";
+  elmnt.style.backgroundColor = color;
+}
+window.onpageshow = function (evt) { if (evt.persisted) noBack(); }
+    window.onunload = function () { void (0); }
+</script>
+  </head>
+  <body>
+    <div class="container-scroller">
+<div class="nab">
+<div class="ab">
+<a href=" " ><img src="{{ url_for('static', filename = 'images/GAP.gif') }}", width="50" height="50"></a>
+<a href=" " ><h2>Status Tracker </h2></a> 
+ </div> 
+  <div  class="anda">
+   <a href=".." ><b><font color= "#FFFFCC">Log Out</font></b></a>
+    </div>
+</div>	 
+	  <!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+	  
+		<!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+        <!-- partial -->
+        <div class="main-panel">
+          
+			<!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+			   <div class="row">
+       
+               
+                  <div class="card-body">
+				  
+                <button class="tablink" onclick="openPage('Project Key', this, '#555')" id="defaultOpen" style="margin-left:110px;">Project Key</button>
+                <button class="tablink" onclick="openPage('JIRA Query', this, '#555')" >JIRA Query</button>
+                   <form method="POST">
+                   <div id="Project Key" class="tabcontent">
+                   <h4 style="margin:50px 170px; color:#000000;">Enter the project key: </h4>
+				   <h4 style="margin:50px 170px; color:#000000;">Enter the start date: </h4>
+			       <h4 style="margin:50px 170px; color:#000000;">Enter the end date: </h4>
+					<div class="bl">  
+					<input name="text">
+					  <input name="start" type="date">
+					 <input name="end" type="date">
+		            <input type="submit">
+					</div>
+                    </div>
+
+<div id="JIRA Query" class="tabcontent">
+</br> </br>
+    <h4 style="margin:50px 150px; color:#000000;">Enter the search query: </h4> </br></br>
+			 <div class="cl">
+			 <textarea rows="4" cols="50" name="que" ></textarea>  </br></br>  
+			 <input type="submit"> 
+					</div>
+					 
+</div>            
+					
+			</form>		
+                  </div>
+             
+              
+            </div>		
+        
+         
+        </div>
+        <!-- main-panel ends -->
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+        	<script src = "{{ url_for('static', filename = 'js/vendor.bundle.base.js') }}" ></script>
+	         <script src = "{{ url_for('static', filename = 'js/misc.js') }}" ></script>
+  </body>
+</html>

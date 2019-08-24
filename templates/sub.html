@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Status Tracker</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='css/style2.css') }}">
+	<link rel="stylesheet" href="{{ url_for('static', filename='css/style1.css') }}">
+    <link rel="icon" href="{{ url_for('static', filename = 'images/GAP.gif') }}">
+<style>	
+.nab{
+  z-index: 9999;
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+
+.nab a {
+  float: left;
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+.nab a:hover {
+ padding-top: 21px;
+  background:white;
+  color: black;
+}
+
+.and{
+float:right;
+}
+.anda{
+float:right;
+}
+
+	.nav
+	{
+	position: fixed;
+	height=100%;
+	}
+	
+	input{
+  width: 100%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  border-color: blue;
+  box-sizing: border-box;
+}
+
+input[type=submit] {
+  width: 100%;
+  background-color: #4CAF50;
+  color: white;
+  padding: 14px 20px;
+  margin: 35px 0;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+  }
+  
+ .card-body
+ {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+.content-wrapper
+{
+background-color: white;
+}
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.ab a{
+	color: white;
+	}
+.ab a:hover{
+	 padding-top: 13px;
+	color:white;
+	background-color: black;
+	}
+.tablink {
+  background-color: #A9A9A9;
+  color: white;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  font-size: 17px;
+  width: 50%;
+}
+
+/* Style the tab content (and add height:100% for full page content) */
+.tabcontent {
+  color: black;
+  display: none;
+  padding: 100px 20px;
+  height: 100%;
+}
+
+	</style>
+  </head>
+  <body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+<script  type="text/javascript">
+window.onload = function () {
+document.getElementById("defaultOpen").click();
+}
+</script>
+    <div class="container-scroller">
+<div class="nab">
+<div class="ab">
+<a href=" " ><img src="{{ url_for('static', filename = 'images/GAP.gif') }}", width="50" height="50"></a>
+<a href=" " ><h2>Status Tracker </h2></a> 
+ </div> 
+  <div  class="anda">
+  <div class="and">
+   
+   </div>   </div>
+</div>	 
+	  <!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+      <!-- partial -->
+      <div class="container-fluid page-body-wrapper">
+	  <!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+        <!-- partial:partials/_sidebar.html -->
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav"> 	
+		  <li class="nav-item nav-category"></li>
+		   <li class="nav-item nav-category"></li>
+		  <li class="nav-item nav-category"> </li>
+		
+            <li class="nav-item nav-category">   Main Menu</li>
+
+            <li class="nav-item">
+              <a class="nav-link" href="/index">
+                <i class="menu-icon typcn typcn-document-text"></i>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+			
+			<li class="nav-item">
+              <a class="nav-link" href="/assi">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Assignee Report</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/sta">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Story Status Report</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/rel">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Releases Report</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/epic">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Epic Report</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/story ">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Stories Report</span>
+              </a>
+            </li>
+			<li class="nav-item">
+              <a class="nav-link" href="/doc">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Documentation</span>
+              </a>
+            </li>
+				<li class="nav-item">
+              <a class="nav-link" href="/table">
+                <i class="menu-icon typcn typcn-bell"></i>
+                <span class="menu-title">Tables</span>
+              </a>
+            </li>
+          </ul>
+        </nav>
+		<!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+        <!-- partial -->
+        <div class="main-panel">
+          <div class="content-wrapper">
+			<!-- ---------------------------------------------------------------------------------------------------------------------------    -->
+                <div  id="a"></br></br></br></div>
+			   <div class="row">
+              <div class="col-lg-12 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+				 </br></br></br></br></br>
+
+			<a href=".." id="defaultOpen">	 <h1 > LOGGED OUT </h1> </a>
+				 </br></br></br></br></br>
+                  </div>
+                </div>
+              </div>
+             
+            </div>	
+          </div>
+          <!-- content-wrapper ends -->
+          
+        </div>
+        <!-- main-panel ends -->
+        <!-- main-panel ends -->
+      </div>
+      <!-- page-body-wrapper ends -->
+    </div>
+    <!-- container-scroller -->
+        	<script src = "{{ url_for('static', filename = 'js/vendor.bundle.base.js') }}" ></script>
+	         <script src = "{{ url_for('static', filename = 'js/misc.js') }}" ></script>
+  </body>
+</html>
